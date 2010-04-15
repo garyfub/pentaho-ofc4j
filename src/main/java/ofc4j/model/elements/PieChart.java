@@ -114,10 +114,19 @@ public class PieChart extends Element {
     public static class Slice {
         private final String text;
         private final Number value;
+        private final String label;
+        private String tip;
         
         public Slice(Number value, String text) {
             this.text = text;
             this.value = value;
+            this.label = null;
+        }
+
+        public Slice(Number value, String text, String label) {
+          this.text = text;
+          this.value = value;
+          this.label = label;
         }
         
         public Number getValue() {
@@ -127,6 +136,17 @@ public class PieChart extends Element {
         public String getText() {
             return text;
         }
+        public String getLabel() {
+          return label;
+        }
+        
+        public String getTooltip() {
+            return tip;
+        }
+        public void setTooltip(String tip) {
+            this.tip = tip;
+        }
+
     }
     
     private synchronized void checkColours() {

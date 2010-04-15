@@ -30,7 +30,7 @@ public class DotConverter extends ConverterBase<Dot> {
         writeNode(writer, "halo-size", o.getHaloSize());
     }
 
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public boolean canConvert(Class arg0) {
         return Dot.class.isAssignableFrom(arg0);

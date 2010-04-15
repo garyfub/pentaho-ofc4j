@@ -21,17 +21,17 @@ import ofc4j.model.axis.Label.Rotation;
 import com.thoughtworks.xstream.converters.SingleValueConverter;
 
 public class RotationConverter implements SingleValueConverter {
-    @Override
+    // @Override
     public Object fromString(String s) {
         return Rotation.valueOf(s.toUpperCase());
     }
 
-    @Override
+    // @Override
     public String toString(Object o) {
         return o.toString();
     }
 
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public boolean canConvert(Class c) {
         return Rotation.class.isAssignableFrom(c);

@@ -29,7 +29,7 @@ public class StackValueConverter extends ConverterBase<StackValue> {
         writeNode(writer, "colour", o.getColour());
     }
 
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public boolean canConvert(Class clazz) {
         return StackValue.class.isAssignableFrom(clazz);

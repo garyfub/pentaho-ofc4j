@@ -24,19 +24,19 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.path.PathTrackingWriter;
 
 public abstract class ConverterBase<T> implements Converter {
-		static java.text.NumberFormat nf;
-		static
-		{
-			nf = java.text.NumberFormat.getNumberInstance  ();
-			nf.setGroupingUsed(false);
-		}
-		
-    @Override
+    static java.text.NumberFormat nf;
+    static
+    {
+      nf = java.text.NumberFormat.getNumberInstance  ();
+      nf.setGroupingUsed(false);
+    }
+    
+    // @Override
     public final Object unmarshal(HierarchicalStreamReader arg0, UnmarshallingContext arg1) {
         return null;
     }
     
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public final void marshal(Object o, HierarchicalStreamWriter hsw, MarshallingContext mc) {
         convert((T) o, (PathTrackingWriter) hsw, mc);
@@ -47,11 +47,11 @@ public abstract class ConverterBase<T> implements Converter {
             writer.startNode(name, o.getClass());
             if(o instanceof Number)
             {
-            	
-       		 	writer.setValue(nf.format(o));
+              
+            writer.setValue(nf.format(o));
             }
             else
-            	writer.setValue(o.toString());
+              writer.setValue(o.toString());
             writer.endNode();
         }
     }

@@ -21,7 +21,7 @@ import ofc4j.model.metadata.Alias;
 public abstract class Axis {
     private Integer stroke;
     private String colour;
-    private String grid_colour;
+    @Alias("grid-colour") private String grid_colour;
     private Integer steps;
     private Integer offset;
     @Alias("3d") private Integer threed;

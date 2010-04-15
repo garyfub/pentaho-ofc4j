@@ -22,6 +22,7 @@ public class AreaHollowChart extends LineChart {
     private static transient final Float DEFAULT_ALPHA = 0.35f;
     
     @Alias("fill-alpha") private Float fillAlpha;
+    private String fill;
     
     public AreaHollowChart() {
         super("area_hollow");
@@ -35,5 +36,13 @@ public class AreaHollowChart extends LineChart {
     public AreaHollowChart setFillAlpha(Float fillAlpha) {
         this.fillAlpha = fillAlpha;
         return this;
+    }
+
+    public void setFill(String fill) {
+        this.fill = fill;
+    }
+
+    public String getFill() {
+        return fill;
     }
 }

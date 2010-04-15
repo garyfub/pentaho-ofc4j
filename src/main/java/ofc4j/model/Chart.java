@@ -16,9 +16,9 @@ See <http://www.gnu.org/licenses/lgpl-3.0.txt>.
 
 package ofc4j.model;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashSet;
 
 import ofc4j.OFC;
 import ofc4j.OFCException;
@@ -42,8 +42,18 @@ public class Chart {
     private Text y_legend;
     private Text x_legend;
     private String bg_colour;
-    private Collection<Element> elements = new HashSet<Element>();
-
+    private String inner_bg_colour;
+    private Collection<Element> elements = new ArrayList<Element>();
+    private Tooltip tooltip;
+    
+    public Tooltip getTooltip() {
+      return tooltip;
+    }
+  
+    public void setTooltip(Tooltip tooltip) {
+      this.tooltip = tooltip;
+    }
+      
     public XAxis getXAxis() {
         return x_axis;
     }
@@ -118,6 +128,15 @@ public class Chart {
         this.bg_colour = bg_colour;
         return this;
     }
+    
+    public String getInnerBackgroundColour() {
+        return inner_bg_colour;
+    }
+    
+    public Chart setInnerBackgroundColour(String inner_bg_colour) {
+        this.inner_bg_colour = inner_bg_colour;
+        return this;
+    }
 
     public Collection<Element> getElements() {
         return elements;
@@ -157,6 +176,9 @@ public class Chart {
      * with the OFC4J library itself.
      */
     public String toString() throws OFCException {
-        return OFC.getInstance().render(this);
+      String json = OFC.getInstance().render(this);
+  
+      json = json.replaceAll("\\{\"hack\":\"hack-null\"\\}", "null");
+      return json;
     }
 }

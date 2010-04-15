@@ -25,6 +25,7 @@ import java.util.List;
 
 import ofc4j.model.Chart;
 import ofc4j.model.Text;
+import ofc4j.model.Tooltip;
 import ofc4j.model.axis.Axis;
 import ofc4j.model.axis.Label;
 import ofc4j.model.axis.XAxis;
@@ -74,7 +75,7 @@ public class OFC {
         ScatterChart.Point.class, FilledBarChart.class, SketchBarChart.class,
         StackedBarChart.class, StackedBarChart.StackValue.class, StackedBarChart.Stack.class,
         BarChart.Bar.class, FilledBarChart.Bar.class, SketchBarChart.Bar.class,
-        LineChart.Dot.class
+        LineChart.Dot.class, Tooltip.class
     };
     
     private final XStream converter = new XStream(new JsonHierarchicalStreamDriver());

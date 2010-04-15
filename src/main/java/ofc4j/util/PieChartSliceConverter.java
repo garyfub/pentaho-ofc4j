@@ -23,7 +23,7 @@ import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.io.path.PathTrackingWriter;
 
 public class PieChartSliceConverter extends ConverterBase<Slice> {
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public boolean canConvert(Class c) {
         return PieChart.Slice.class.isAssignableFrom(c);
@@ -33,5 +33,7 @@ public class PieChartSliceConverter extends ConverterBase<Slice> {
     public void convert(Slice o, PathTrackingWriter writer, MarshallingContext mc) {
         writeNode(writer, "value", o.getValue());
         writeNode(writer, "text", o.getText());
+        writeNode(writer, "label", o.getLabel());
+        writeNode(writer, "tip", o.getTooltip());
     }
 }

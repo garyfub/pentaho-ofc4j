@@ -26,6 +26,14 @@ import com.thoughtworks.xstream.io.path.PathTrackingWriter;
 public class BarConverter extends ConverterBase<BarChart.Bar> {
     @Override
     public void convert(BarChart.Bar b, PathTrackingWriter writer, MarshallingContext mc) {
+       // MAJOR HACK: XStream cannot produce null values in the JSON format that we need. 
+       // So we set the value in the null instance to hack-null, then in the OFC engine,
+       // on render, we do a String replaceall() on the hack-null references. 
+       
+       if (b.getTop()==null){
+           writeNode(writer, "hack", "hack-null");
+           return;
+       }
         writeNode(writer, "top", b.getTop());
         writeNode(writer, "bottom", b.getBottom());
         writeNode(writer, "colour", b.getColour());
@@ -38,7 +46,7 @@ public class BarConverter extends ConverterBase<BarChart.Bar> {
         }
     }
     
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public boolean canConvert(Class clazz) {
         return BarChart.Bar.class.isAssignableFrom(clazz);

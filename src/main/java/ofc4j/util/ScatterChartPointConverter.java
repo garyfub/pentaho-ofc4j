@@ -23,7 +23,7 @@ import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.io.path.PathTrackingWriter;
 
 public class ScatterChartPointConverter extends ConverterBase<Point> {
-    @Override
+    // @Override
     @SuppressWarnings("unchecked")
     public boolean canConvert(Class c) {
         return ScatterChart.Point.class.isAssignableFrom(c);
