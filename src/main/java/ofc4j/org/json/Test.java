@@ -1,4 +1,4 @@
-package org.json;
+package ofc4j.org.json;
 
 import java.util.Collection;
 import java.util.Iterator;

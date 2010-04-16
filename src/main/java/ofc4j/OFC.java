@@ -43,9 +43,9 @@ import ofc4j.model.elements.SketchBarChart;
 import ofc4j.model.elements.StackedBarChart;
 import ofc4j.model.metadata.Alias;
 import ofc4j.model.metadata.Converter;
+import ofc4j.org.json.JSONException;
+import ofc4j.org.json.JSONObject;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.ConverterMatcher;

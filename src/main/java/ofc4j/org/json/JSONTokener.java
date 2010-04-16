@@ -1,4 +1,4 @@
-package org.json;
+package ofc4j.org.json;
 
 import java.io.BufferedReader;
 import java.io.IOException;
