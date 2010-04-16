@@ -27,7 +27,7 @@ public abstract class ConverterBase<T> implements Converter {
     static java.text.NumberFormat nf;
     static
     {
-      nf = java.text.NumberFormat.getNumberInstance  ();
+      nf = java.text.NumberFormat.getNumberInstance();
       nf.setGroupingUsed(false);
     }
     
@@ -47,8 +47,13 @@ public abstract class ConverterBase<T> implements Converter {
             writer.startNode(name, o.getClass());
             if(o instanceof Number)
             {
-              
-            writer.setValue(nf.format(o));
+              String numberString = nf.format(o);
+              if (numberString.toString().indexOf(',') >= 0) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append('"').append(numberString).append('"');
+                numberString = stringBuffer.toString();
+              }
+              writer.setValue(numberString);
             }
             else
               writer.setValue(o.toString());
