@@ -16,6 +16,8 @@ See <http://www.gnu.org/licenses/lgpl-3.0.txt>.
 
 package ofc4j.util;
 
+import java.util.Locale;
+
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;
@@ -27,7 +29,7 @@ public abstract class ConverterBase<T> implements Converter {
     static java.text.NumberFormat nf;
     static
     {
-      nf = java.text.NumberFormat.getNumberInstance();
+      nf = java.text.NumberFormat.getNumberInstance(Locale.US);
       nf.setGroupingUsed(false);
     }
     
@@ -47,13 +49,7 @@ public abstract class ConverterBase<T> implements Converter {
             writer.startNode(name, o.getClass());
             if(o instanceof Number)
             {
-              String numberString = nf.format(o);
-              if (numberString.toString().indexOf(',') >= 0) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append('"').append(numberString).append('"');
-                numberString = stringBuffer.toString();
-              }
-              writer.setValue(numberString);
+              writer.setValue(nf.format(o));
             }
             else
               writer.setValue(o.toString());
