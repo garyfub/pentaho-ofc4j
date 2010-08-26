@@ -163,6 +163,7 @@ public class StackedBarChart extends Element {
     public static class StackValue {
         private Number val;
         private String colour;
+        @Alias("on-click") private String onClick;    
         
         public StackValue(Number value) {
             this(value, null);
@@ -189,6 +190,14 @@ public class StackedBarChart extends Element {
         public StackValue setColour(String colour) {
             this.colour = colour;
             return this;
+        }
+
+        public String getOnClick() {
+          return onClick;
+        }
+
+        public void setOnClick(String onClick) {
+          this.onClick = onClick;
         }
     }
     

@@ -19,6 +19,7 @@ package ofc4j.model.elements;
 import java.util.Arrays;
 import java.util.List;
 
+import ofc4j.model.metadata.Alias;
 import ofc4j.model.metadata.Converter;
 import ofc4j.util.HorizontalBarChartBarConverter;
 
@@ -70,6 +71,8 @@ public class HorizontalBarChart extends Element {
     public static class Bar {
         private final Number right;
         private Number left;
+        @Alias("on-click") private String onClick;
+
         
         public Bar(Number right) {
             this(null, right);
@@ -92,6 +95,14 @@ public class HorizontalBarChart extends Element {
         public Bar setLeft(Number left) {
             this.left = left;
             return this;
+        }
+
+        public String getOnClick() {
+          return onClick;
+        }
+
+        public void setOnClick(String onClick) {
+          this.onClick = onClick;
         }
     }
 }

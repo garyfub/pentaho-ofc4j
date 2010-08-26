@@ -28,6 +28,7 @@ public class DotConverter extends ConverterBase<Dot> {
         writeNode(writer, "colour", o.getColour());
         writeNode(writer, "dot-size", o.getDotSize());
         writeNode(writer, "halo-size", o.getHaloSize());
+        writeNode(writer, "on-click", o.getOnClick());
     }
 
     // @Override

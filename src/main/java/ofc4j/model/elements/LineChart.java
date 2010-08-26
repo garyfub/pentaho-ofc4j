@@ -121,6 +121,9 @@ public class LineChart extends Element {
         @Alias("dot-size") private Integer dotSize;
         private Number value;
         private String colour;
+        @Alias("on-click")
+        private String onClick;
+
         
         public Dot(Number value) {
             this(value, null, null, null);
@@ -164,6 +167,14 @@ public class LineChart extends Element {
         public Dot setColour(String colour) {
             this.colour = colour;
             return this;
+        }
+
+        public String getOnClick() {
+          return onClick;
+        }
+
+        public void setOnClick(String onClick) {
+          this.onClick = onClick;
         }
     }
     

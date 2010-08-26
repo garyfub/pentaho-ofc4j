@@ -37,6 +37,7 @@ public class BarConverter extends ConverterBase<BarChart.Bar> {
         writeNode(writer, "top", b.getTop());
         writeNode(writer, "bottom", b.getBottom());
         writeNode(writer, "colour", b.getColour());
+        writeNode(writer, "on-click", b.getOnClick());
         writeNode(writer, "tip", b.getTooltip());
         if (b instanceof FilledBarChart.Bar) {
             writeNode(writer, "outline-colour", ((FilledBarChart.Bar)b).getOutlineColour());

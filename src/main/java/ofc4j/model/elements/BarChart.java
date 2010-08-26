@@ -89,6 +89,7 @@ public class BarChart extends Element {
         private Number top;
         private Number bottom;
         private String colour;
+        @Alias("on-click") private String onClick;
         @Alias("tip") private String tooltip;
         
         public Bar(Number top, Number bottom, String colour) {
@@ -136,6 +137,14 @@ public class BarChart extends Element {
         public Bar setTooltip(String tooltip) {
             this.tooltip = tooltip;
             return this;
+        }
+
+        public String getOnClick() {
+          return onClick;
+        }
+
+        public void setOnClick(String onClick) {
+          this.onClick = onClick;
         }
     }
 }

@@ -116,6 +116,7 @@ public class PieChart extends Element {
         private final Number value;
         private final String label;
         private String tip;
+        private String onClick;
         
         public Slice(Number value, String text) {
             this.text = text;
@@ -145,6 +146,14 @@ public class PieChart extends Element {
         }
         public void setTooltip(String tip) {
             this.tip = tip;
+        }
+
+        public String getOnClick() {
+          return onClick;
+        }
+
+        public void setOnClick(String onClick) {
+          this.onClick = onClick;
         }
 
     }

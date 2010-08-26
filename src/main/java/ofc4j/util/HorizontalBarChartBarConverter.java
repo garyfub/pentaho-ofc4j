@@ -33,5 +33,6 @@ public class HorizontalBarChartBarConverter extends ConverterBase<Bar> {
     public void convert(Bar o, PathTrackingWriter writer, MarshallingContext mc) {
         writeNode(writer, "right", o.getRight());
         writeNode(writer, "left", o.getLeft());
+        writeNode(writer, "on-click", o.getOnClick());
     }
 }
